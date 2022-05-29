@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_e_shop/provider_class/provider_data.dart';
 import 'package:flutter_e_shop/screen/home_page.dart';
 import 'package:flutter_e_shop/screen/message_page.dart';
 import 'package:flutter_e_shop/screen/settings_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<ProviderClass>(create: (context) => ProviderClass()),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BottonNavigationBarPage(),
     );
@@ -45,16 +48,20 @@ class _BottonNavigationBarPageState extends State<BottonNavigationBarPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_selectIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectIndex,
-        onTap: _navigationBottonBar,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: _pages[_selectIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectIndex,
+          onTap: _navigationBottonBar,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.message), label: "Message"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "Setting"),
+          ],
+        ),
       ),
     );
   }

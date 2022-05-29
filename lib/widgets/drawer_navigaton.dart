@@ -18,7 +18,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
             const UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
-                    'https://scontent.fcgp17-1.fna.fbcdn.net/v/t1.6435-9/131022208_1783347435154227_3634820628408828110_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=diIt-ThfVrUAX9FqZXi&_nc_ht=scontent.fcgp17-1.fna&oh=00_AT_y9jNJ0ZBYwjUgN5goBDDPuVCPqOsZD2Ct3iKIj9Z-fg&oe=62318164'),
+                    'https://thumbs.dreamstime.com/z/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-118143566.jpg'),
               ),
               accountName: Text('Nezam Uddin'),
               accountEmail: Text('nezam@gmail.com'),
